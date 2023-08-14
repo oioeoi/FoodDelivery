@@ -5,10 +5,14 @@ import 'format_currency.dart';
 
 class MyBottomCheckOut extends StatefulWidget {
   const MyBottomCheckOut(
-      {required this.imageUrl, required this.menu, required this.price});
-  final imageUrl;
-  final menu;
-  final price;
+      {required this.imageUrl,
+      required this.menu,
+      required this.price,
+      this.crncy = 0});
+  final String imageUrl;
+  final String menu;
+  final int price;
+  final int crncy;
 
   @override
   State<MyBottomCheckOut> createState() => _MyBottomCheckOutState();
@@ -19,6 +23,8 @@ class _MyBottomCheckOutState extends State<MyBottomCheckOut> {
   String imageUrl = '';
   String menu = '';
   int price = 1;
+  String item = '';
+  int crncy = 0;
 
   @override
   void initState() {
@@ -27,6 +33,7 @@ class _MyBottomCheckOutState extends State<MyBottomCheckOut> {
     menu = widget.menu;
     price = widget.price;
   }
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -45,6 +52,8 @@ class _MyBottomCheckOutState extends State<MyBottomCheckOut> {
             cartListMenu.add(menu);
             cartListPrice.add(price * point);
             cartListPieces.add(point);
+            topingItem.add(item);
+            topingPrice.add(crncy);
             Navigator.pop(context);
           });
         },

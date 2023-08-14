@@ -225,7 +225,7 @@ class _MyOrderPageState extends State<MyOrderPage> {
                       height: 10,
                     ),
                     Text(
-                      "Bakery & Cake . Breakfast . Snack",
+                      topingItem[index],
                       style: TextStyle(
                         fontSize: 12.0,
                       ),
@@ -244,7 +244,7 @@ class _MyOrderPageState extends State<MyOrderPage> {
                                       (cartListPrice[index]), 0)
                                   .toString(),
                               style: TextStyle(
-                                fontSize: 19,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w600,
                                 color: Colors.green[600],
                               ))

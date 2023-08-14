@@ -1,5 +1,6 @@
 import 'package:app1_flutter_training/directory_file/bottom_checkout.dart';
 import 'package:app1_flutter_training/directory_file/dataApp.dart';
+import 'package:app1_flutter_training/widget/custom_checkbox.dart';
 import 'package:flutter/material.dart';
 import 'capitalize_each_word.dart';
 import 'format_currency.dart';
@@ -16,13 +17,14 @@ class MyDragableSheet extends StatefulWidget {
 }
 
 class _MyDragableSheetState extends State<MyDragableSheet> {
-  int index = 1;
   int calculation = 0;
+  int index = 1;
   int point = 1;
-  bool? _isChekced = false;
+  int price = 1;
+  int addCrncy = 1;
   String imageUrl = '';
   String menu = '';
-  int price = 1;
+  String addToping = '';
 
   @override
   void initState() {
@@ -150,58 +152,25 @@ class _MyDragableSheetState extends State<MyDragableSheet> {
                             Border.all(width: 1, color: Colors.grey.shade300)),
                     child: Column(
                       children: [
-                        CheckboxListTile.adaptive(
-                          title: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'ini titlenya',
-                                style: TextStyle(
-                                  color: Colors.green,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 20),
-                                child: Text(
-                                  FormatCurrency.convertToIdr(2000, 0),
-                                  style: TextStyle(
-                                    fontSize: 16.0,
-                                    color: Colors.green,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          value: _isChekced,
-                          onChanged: (bool? newValue) {
-                            setState(() {
-                              _isChekced = newValue;
-                            });
+                        CheckboxButton(
+                          doSomething: () {
+                            addCrncy += 2000;
+                            addToping += 'Sambal terasi';
                           },
-
-                          activeColor: Colors.green,
-                          checkColor: Colors.white,
-                          controlAffinity: ListTileControlAffinity
-                              .leading, // untuk merubah tempat ched-klist
-                          tristate: false, //3 state
+                          topping: 'Sambal terasi',
+                          price: 2000,
                         ),
                         Container(
                           height: 1,
                           color: Colors.grey[300],
                         ),
-                        CheckboxListTile.adaptive(
-                          title: Text('ini titlenya'),
-                          value: _isChekced,
-                          onChanged: (bool? newValue) {
-                            setState(() {
-                              _isChekced = newValue;
-                            });
+                        CheckboxButton(
+                          doSomething: () {
+                            addCrncy += 2500;
+                            addToping += 'Sambal bawang';
                           },
-                          activeColor: Colors.green,
-                          checkColor: Colors.white,
-                          controlAffinity: ListTileControlAffinity
-                              .leading, // untuk merubah tempat ched-klist
-                          tristate: false, //3 state
+                          topping: 'Sambal bawang',
+                          price: 2500,
                         ),
                       ],
                     ),
@@ -226,57 +195,25 @@ class _MyDragableSheetState extends State<MyDragableSheet> {
                             Border.all(width: 1, color: Colors.grey.shade300)),
                     child: Column(
                       children: [
-                        CheckboxListTile.adaptive(
-                          title: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'ini titlenya',
-                                style: TextStyle(
-                                  color: Colors.green,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 20),
-                                child: Text(
-                                  FormatCurrency.convertToIdr(2000, 0),
-                                  style: TextStyle(
-                                    fontSize: 16.0,
-                                    color: Colors.green,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          value: _isChekced,
-                          onChanged: (bool? newValue) {
-                            setState(() {
-                              _isChekced = newValue;
-                            });
+                        CheckboxButton(
+                          doSomething: () {
+                            addCrncy += 3000;
+                            addToping += 'Krupuk udang';
                           },
-                          activeColor: Colors.green,
-                          checkColor: Colors.white,
-                          controlAffinity: ListTileControlAffinity
-                              .leading, // untuk merubah tempat ched-klist
-                          tristate: false, //3 state
+                          topping: 'Krupuk udang',
+                          price: 3000,
                         ),
                         Container(
-                          height: 2,
+                          height: 1,
                           color: Colors.grey[300],
                         ),
-                        CheckboxListTile.adaptive(
-                          title: Text('ini titlenya'),
-                          value: _isChekced,
-                          onChanged: (bool? newValue) {
-                            setState(() {
-                              _isChekced = newValue;
-                            });
+                        CheckboxButton(
+                          doSomething: () {
+                            addCrncy += 5000;
+                            addToping += 'Lontong';
                           },
-                          activeColor: Colors.green,
-                          checkColor: Colors.white,
-                          controlAffinity: ListTileControlAffinity
-                              .leading, // untuk merubah tempat ched-klist
-                          tristate: false, //3 state
+                          topping: 'Lontong',
+                          price: 5000,
                         ),
                       ],
                     ),
@@ -287,7 +224,11 @@ class _MyDragableSheetState extends State<MyDragableSheet> {
                 //checkout button
                 padding: const EdgeInsets.symmetric(vertical: 15),
                 child: MyBottomCheckOut(
-                    imageUrl: imageUrl, menu: menu, price: price),
+                  imageUrl: imageUrl,
+                  menu: menu,
+                  price: price,
+                  crncy: addCrncy,
+                ),
               ),
             ],
           ),

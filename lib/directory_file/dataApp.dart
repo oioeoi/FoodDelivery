@@ -26,6 +26,8 @@ List cartListImage = [];
 List cartListMenu = [];
 List cartListPrice = [];
 List cartListPieces = [];
+List topingItem = [];
+List topingPrice = [];
 
 final List listFoodImage = [
   'https://i.pinimg.com/474x/b3/72/99/b37299c474375bdf7c979d11caaa8917.jpg',
@@ -102,7 +104,7 @@ final List listDrinkMenu2 = [
   'Mexican Chocolate Iced Coffee',
   'Blueberry Thyme Gin Fizz',
   'Boozy Whipped Coffee'
-  'Cucumber Rosemary Gin and Tonic',
+      'Cucumber Rosemary Gin and Tonic',
 ];
 
 final List listDrinkPrice = [
